@@ -31,7 +31,7 @@ public class UI {
             int row = Integer.parseInt(s.substring(1));
             return new ChessPosition(column, row);
         } catch (RuntimeException e) {
-            throw new chess.ChessException("Error reading ChessPosition. Valid values are from a1 to h8.");
+            throw new chess.ChessException("Erro ao ler posicao. Valores validos: a1 ate h8.");
         }
     }
 
@@ -40,15 +40,15 @@ public class UI {
         System.out.println();
         printCapturedPieces(captured);
         System.out.println();
-        System.out.println("Turn: " + chessMatch.getTurn());
+        System.out.println("Turno: " + chessMatch.getTurn());
         if (!chessMatch.getCheckMate()) {
-            System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+            System.out.println("Aguardando jogador: " + chessMatch.getCurrentPlayer());
             if (chessMatch.getCheck()) {
-                System.out.println("CHECK!");
+                System.out.println("XEQUE!");
             }
         } else {
-            System.out.println("CHECKMATE!");
-            System.out.println("Winner: " + chessMatch.getCurrentPlayer());
+            System.out.println("XEQUE-MATE!");
+            System.out.println("Vencedor: " + chessMatch.getCurrentPlayer());
         }
     }
 
@@ -97,12 +97,12 @@ public class UI {
         List<ChessPiece> black = captured.stream()
                 .filter(x -> x.getColor() == Color.BLACK)
                 .collect(Collectors.toList());
-        System.out.println("Captured pieces:");
-        System.out.print("White: ");
+        System.out.println("Pecas capturadas:");
+        System.out.print("Brancas: ");
         System.out.print(ANSI_WHITE);
         System.out.println(Arrays.toString(white.toArray()));
         System.out.print(ANSI_RESET);
-        System.out.print("Black: ");
+        System.out.print("Pretas: ");
         System.out.print(ANSI_YELLOW);
         System.out.println(Arrays.toString(black.toArray()));
         System.out.print(ANSI_RESET);

@@ -1,6 +1,12 @@
 package chess;
 
 public enum Color {
-	WHITE,
-	BLACK;
+    WHITE {
+        @Override
+        public String toString() { return "BRANCO"; }
+    },
+    BLACK {
+        @Override
+        public String toString() { return "PRETO"; }
+    };
 }
